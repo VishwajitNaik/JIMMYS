@@ -1,0 +1,337 @@
+/* Reset some default styles for the body and list */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Style the navbar */
+.navbar {
+    background-color: #cfcccc;
+    color: #202020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 50px;
+}
+
+/* Style the navbar logo */
+.navbar-logo a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Style the navbar menu items */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-menu li {
+    margin-right: 50px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.navbar-menu a:hover {
+    color: #ff9900;
+}
+
+.sec_nav {
+    width: 100%;
+    height: 30px;
+    background-color: rgb(10, 10, 76);
+    color: white;
+    text-align: center;
+}
+
+.heading {
+    align-items: center;
+    text-align: center;
+}
+
+/* Reset some default styles for the body and list */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Style the card */
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-left: 5%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    overflow: hidden;
+    width: calc(18% - 20px); /* 4 cards per row with spacing */
+    margin: 20px;
+}
+
+.card:nth-child(n + 13) {
+    display: none; /* Hide cards after the 12th card */
+}
+
+.card_flex {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next row */
+}
+
+/* Style the card image */
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Style the card details */
+.card-details {
+    padding: 20px;
+    flex-grow: 1; /* Expand to fill remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align items to the bottom */
+}
+
+/* Style the product title */
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style the product price */
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff9900;
+    margin-top: auto; /* Push the price to the bottom */
+}
+
+/* Style the add to cart button */
+.add-to-cart-btn {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e68200;
+}
+
+.card-image img:hover {
+    content: attr(data-alt-src);
+}
+
+.load-more {
+    display: flex;
+    flex-direction: row;
+
+
+    border-radius: 30px;
+    background-color: rgb(74, 74, 112);
+    color: white;
+    height: 50px;
+    width: 100px;
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    justify-content: center; /* Center horizontally within the button */
+    align-items: center; /* Center vertically within the button */
+}
+
+.prev{
+    border-radius: 30px;
+        margin-top: 10px;
+        background-color: rgb(74, 74, 112);
+        color: white;
+        height: 50px;
+        width: 100px;
+        margin: 0 auto; /* Center horizontally */
+        display: flex;
+        justify-content: center; /* Center horizontally within the button */
+        align-items: center; /* Center vertically within the button */
+    
+}
+
+/* Style for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* Adjust the width as needed */
+    height: 100%;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the sidebar heading */
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Style for the items in the sidebar */
+#selected-chocolates {
+    list-style: none;
+    padding: 0;
+}
+
+#selected-chocolates li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Style for the total price in the sidebar */
+#total-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff9900;
+    display: block;
+    margin-top: 10px;
+}
+/* Your existing CSS styles */
+
+/* Hidden sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Hide the sidebar off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #5c5858;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1;
+}
+
+/* Sidebar content styles */
+.sidebar h2 {
+    margin: 20px;
+}
+
+/* Open sidebar */
+.sidebar.open {
+    right: 0; /* Show the sidebar by setting right to 0 */
+}
+
+/* Your other CSS styles */
+
+/* Style the button */
+#sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 0px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #d4d6d7; /* Smooth blue background color */
+    color: #ffffff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ffc107; /* Change color on hover (you can customize) */
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #c0c2c4; /* Darker blue background for the bottom section */
+}
+
+.left-footer input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.right-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+/* Adjust icon size as needed */
+.right-footer i {
+    font-size: 20px;
+}
+
+.title_footer{
+    width: 15rem;
+    height: 10rem;
+}
+
+.title_Header{
+    margin-left: 300px;
+    width: 10rem;
+    height: 5rem;
+}

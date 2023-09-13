@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, height=device-height">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Navbar Example</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img class="title_Header" src="https://drinkjimmys.com/cdn/shop/files/Logo-3_1.png?v=1662467080&width=1100" alt="">
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Rest of your content goes here -->
+    <div class="sec_nav">
+        <h3>Use code - JIMMY10 to get Flat 10% OFF</h3>
+    </div>
+    <h2 class="heading">Products</h2>
+
+    <div class="card_flex" id="cardContainer"></div>
+
+    <!-- Add this button after your card divs -->
+    <button class="load-more" id="load-more-button" onclick="loadMoreCards()">Load More</button>
+    <button class="prev"  onclick="previousPage()">Previous</button>
+ 
+
+    <button id="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-shopping-cart"></i></button>
+    
+
+    <!-- Sidebar for shopping cart -->
+    <div class="sidebar" id="sidebar">
+        <h2>Shopping Cart</h2>
+        <div id="selected-items"></div>
+        <p>Total Price: <span id="total-price">$0.00</span></p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="https://drinkjimmys.com/cdn/shop/files/Logo-3_1.png?v=1662467080&width=1100" class="title_footer" alt="Imge not found">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Media Center</a></li>
+                    <li><a href="#">Recipe Library</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Store Policies</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Shipping and Refund</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Cocktail Mixers</a></li>
+                    <li><a href="#">Party Packs</a></li>
+                    <li><a href="#">Application Packs</a></li>
+                    <li><a href="#">Barware Accessories</a></li>
+                    <li><a href="#">HUSTLE Energy Drink</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="left-footer">
+                <input type="email" placeholder="Subscribe to Our Emails">
+            </div>
+            <div class="right-footer">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const cardData = [
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/JimmyAssortedCocktailMixerPack-1.webp?v=1693481883",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/JC-BLOODY-MARRY-2.jpg?v=1692863591&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Jimmy_sCelebrationPack_1_7072f4b7-e1a8-49b5-b2b1-ff71cb403157.png?v=1692879562&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/BarSpoon_Fork_83abd70d-6011-480f-950d-35c483dd49f7.jpg?v=1692186159&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/wb-06_4311e9af-5e44-4d8a-a3e6-670720909343.jpg?v=1692180577&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/PI1_b33b5bf3-2f4e-479e-8ae1-688930170499.jpg?v=1692185351&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/em-02_10a16250-00e2-4d32-950b-867da7a9f89a.jpg?v=1692184729&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/cs-01_7450887d-f3c7-4d44-b940-a57520e14cd7.png?v=1692181742&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Artboard1copy_cb1cb317-f2ef-4b63-8c18-7c51fd8a7402.png?v=1692185252&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/HustleAd1080x1080.png?v=1694090578&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/2_3929e681-47d9-4099-8aa2-e48d28a7bb80.jpg?v=1692179307&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Updated_G-Pack_1_4d46c0e0-5404-4f81-9b2c-cfc8fb28fe18.jpg?v=1692186260&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Untitleddesign_4_c9adc989-85dd-44cf-96b8-d8b5460c0549.jpg?v=1692178882&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/products/Untitleddesign.jpg?v=1630058774&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Untitleddesign_2_3f518728-902b-4695-ae84-4f3d191242c2.jpg?v=1692179894&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/products/Untitleddesign_1.jpg?v=1630058939&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/Updated_V-Pack_d040c08c-6145-4518-88ca-c956466e0ffa.jpg?v=1693485104&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/JimmyWhiskyAppreciationPack.jpg?v=1693486488&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/wb-02_1_8cfde4c2-341c-4407-9904-150712e333d8.jpg?v=1692180799&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/products/wb-05.jpg?v=1632122070&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/ad-10_caacacea-de47-4b16-8498-9f1197c3dc25.jpg?v=1692186496&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/DR8A5895_e56eea34-a80a-48fe-b0a8-a6aaac73c2e8.jpg?v=1692351268",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/wb-01_712bfdcc-94f4-42c1-b68a-45a86f727843.jpg?v=1692184015&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/cold_smooth_tasty._1080x1080px.png?v=1692344756&width=360",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "https://drinkjimmys.com/cdn/shop/files/wb-04_582837f9-89b6-4184-9a86-a9c17d223815.jpg?v=1692184149&width=360",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "",
+            },
+            {
+                title: "Luxury Watch",
+                price: "$675.00",
+                imageSrc: "",
+            },
+            {
+                title: "Elegant Necklace",
+                price: "$249.99",
+                imageSrc: "",
+            },
+            // Add more card objects as needed...
+        
+        ];
+
+
+//
+
+//
+
+
+        const cardContainer = document.getElementById("cardContainer");
+
+cardData.forEach((card, index) => {
+    const cardElement = document.createElement("div");
+    cardElement.className = "card";
+    cardElement.innerHTML = `
+        <div class="card-image">
+            <img id="product-image-${index}" src="${card.imageSrc}" alt="Product Image">
+        </div>
+        <div class="card-details">
+            <p class="product-title">${card.title}</p>
+            <p class="product-price">${card.price}</p>
+            <button class="add-to-cart-btn" onclick="addToCart('${card.title}', '${card.price}')">Add to Cart</button>
+        </div>
+    `;
+
+    cardElement.onmouseover = () => changeImage(true, `product-image-${index}`);
+    cardElement.onmouseout = () => changeImage(false, `product-image-${index}`);
+
+    cardContainer.appendChild(cardElement);
+});
+
+// Define variables
+const cards = document.querySelectorAll('.card');
+const loadMoreButton = document.getElementById('load-more-button');
+let currentPage = 1;
+const cardsPerPage = 12; // Number of cards to display per page
+
+// Function to show cards for the current page
+function showCardsForPage(page) {
+    const startIndex = (page - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+
+    // Loop through all cards and hide/show based on the current page
+    cards.forEach((card, index) => {
+        if (index >= startIndex && index < endIndex) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        showCardsForPage(currentPage); // Call showCardsForPage to display the previous page
+    }
+}
+
+// Function to load more cards
+function loadMoreCards() {
+    currentPage++; // Increment the current page
+    showCardsForPage(currentPage); // Show cards for the new page
+}
+
+// Function to add a chocolate to the cart
+function addToCart(title, price) {
+    if (selectedChocolates.length < 8) {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${title} - ${price}`;
+        const selectedChocolatesList = document.getElementById("selected-chocolates");
+        selectedChocolatesList.appendChild(listItem);
+
+        totalPrice += parseFloat(price);
+        const totalPriceElement = document.getElementById("total-price");
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+    } else {
+        alert("You can select a maximum of 8 chocolates.");
+    }
+}
+
+function changeImage(isHovered, imageId) {
+    const productImage = document.getElementById(imageId);
+
+    if (isHovered) {
+        productImage.src = "https://drinkjimmys.com/cdn/shop/files/JC-BLOODY-MARRY-2.jpg?v=1692863591&width=360";
+    } else {
+        productImage.src = "https://drinkjimmys.com/cdn/shop/files/JimmyAssortedCocktailMixerPack-1.webp?v=1693481883";
+    }
+}
+
+const chocolates = [
+            { name: "Milk Chocolate", price: 2.50 },
+            { name: "Dark Chocolate", price: 3.00 },
+            { name: "White Chocolate", price: 2.75 },
+            // Add more chocolates here
+        ];
+
+        const selectedChocolates = [];
+        let totalPrice = 0;
+
+        function addToSelection(index) {
+            if (selectedChocolates.length < 8) {
+                const chocolate = chocolates[index];
+                selectedChocolates.push(chocolate);
+                totalPrice += chocolate.price;
+
+                // Update the sidebar
+                updateSidebar();
+            } else {
+                alert("You can select a maximum of 8 chocolates.");
+            }
+        }
+
+        function updateSidebar() {
+            const selectedItemsContainer = document.getElementById("selected-items");
+            selectedItemsContainer.innerHTML = ""; // Clear previous items
+
+            selectedChocolates.forEach((chocolate, index) => {
+                const itemCard = document.createElement("div");
+                itemCard.className = "item-card";
+                itemCard.innerHTML = `
+                    <p>${chocolate.name} - $${chocolate.price}</p>
+                    <button onclick="removeFromSelection(${index})">Remove</button>
+                `;
+                selectedItemsContainer.appendChild(itemCard);
+            });
+
+            const totalPriceElement = document.getElementById("total-price");
+            totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+        }
+
+        function removeFromSelection(index) {
+            const removedItem = selectedChocolates.splice(index, 1)[0];
+            totalPrice -= removedItem.price;
+            updateSidebar();
+        }
+
+        // Initialize the UI
+        displayChocolates();
+        updateSidebar();
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
